@@ -1,0 +1,203 @@
+body{
+    margin: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgb(107, 107, 107);
+}
+
+.container{
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 100%;
+    margin: 0;
+    position: relative;
+}
+
+.cup{
+    background-color: white;
+    width:300px;
+    height: 300px;
+    border-bottom-left-radius: 50%;
+    border-bottom-right-radius: 50%;
+    position: relative;
+}
+
+.handle{
+    position: absolute;
+    right:-100px;
+    top:40px;
+    width:100px;
+    height:130px;
+    border-top: 20px white solid;
+    border-right: 20px white solid;
+    border-bottom: 20px white solid;
+    border-bottom-right-radius: 120px;
+    border-top-right-radius: 120px;
+    z-index: -1;
+}
+
+.plate{
+    width: 350px;
+    height: 100px;
+    background-color: white;
+    border-radius: 50%;
+    position: absolute;
+    left: -25px;
+    bottom: -25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: -1;
+}
+
+.plate::after{
+    content: '';
+    width: 300px;
+    height: 80px;
+    background-image: linear-gradient(to right, rgb(233, 233, 233), rgb(241, 241, 241));
+    display: block;
+    border-radius: 50%;
+}
+
+.top{
+    width:100%;
+    height: 100px;
+    position: absolute;
+    top:-50px;
+    border-radius: 50%;
+    background-color: white;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.inside{
+    width:95%;
+    height: 95%;
+    position: absolute;
+    left: 7px;
+    border-radius: 50%;
+    background-image: linear-gradient(to right, rgb(202, 202, 202), rgb(235, 235, 235));
+    top:5px;
+    overflow: hidden;
+}
+
+.inside::after{
+    width: 100%;
+    height: 100%;
+    content: '';
+    background-image: linear-gradient(to right, rgb(112, 67, 0), rgb(156, 94, 0));
+    display: block;
+    border-radius: 50%;
+    position: absolute;
+    top:30px;
+}
+
+.smoke{
+    width: 60px;
+    height: 60px;
+    z-index: 400;
+    background-color: white;
+    position: relative;
+    bottom: 0;
+    opacity: 0; 
+    filter: blur(25px);
+    animation: smoke 1.5s infinite;
+    animation-delay: calc(var(--smoke)*0.2s);
+    animation-timing-function: linear;
+}
+
+@keyframes smoke{
+    from{
+        bottom: 0;
+        opacity: 0;
+    }
+    to{
+        bottom: 300px;
+        opacity: 1;
+    }
+}
+
+.text{
+    overflow:visible;
+    padding-top: 50px;
+    animation: fill-anim .5s ease-in 3s forwards;
+    fill:transparent;
+}
+
+@keyframes fill-anim{
+    to{
+        fill:white;
+    }
+}
+
+.text path:nth-child(1){
+    stroke-dasharray: 340;
+    stroke-dashoffset: 340;
+    animation: letter-anim 2s ease-in forwards;
+}
+
+.text path:nth-child(2){
+    stroke-dasharray: 385.2;
+    stroke-dashoffset: 385.2;
+    animation: letter-anim 2s ease-in .2s forwards;
+}
+
+.text path:nth-child(3){
+    stroke-dasharray: 290;
+    stroke-dashoffset: 290;
+    animation: letter-anim 2s ease-in .4s forwards;
+}
+
+.text path:nth-child(4){
+    stroke-dasharray: 290;
+    stroke-dashoffset: 290;
+    animation: letter-anim 2s ease-in .6s forwards;
+}
+
+.text path:nth-child(5){
+    stroke-dasharray: 378.4;
+    stroke-dashoffset: 378.4;
+    animation: letter-anim 2s ease-in .8s forwards;
+}
+
+.text path:nth-child(6){
+    stroke-dasharray: 378.4;
+    stroke-dashoffset: 378.4;
+    animation: letter-anim 2s ease-in 1s forwards;
+}
+
+@keyframes letter-anim{
+    to{
+        stroke-dashoffset: 0;
+    }
+}
+
+.squirrel-container{
+    position: absolute;
+    top:0;
+    left: 50%;
+    transform: translateX(-50%);
+    overflow: hidden;
+}
+
+.squirrel{
+    position: relative;
+    top:40px;
+    animation: squirrel-anim 2s ease-in-out alternate infinite;
+    mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 60%, rgba(0,0,0,0) 100%);
+    -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 60%, rgba(0,0,0,0) 100%);
+}
+
+@keyframes squirrel-anim{
+    from{
+        top:40px;
+    }
+    to{
+        top:55px;
+    }
+}
